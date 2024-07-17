@@ -23,6 +23,7 @@ public class EmailController {
             @RequestPart("file") MultipartFile file
     ) {
         String[] recipients = {"sunday.odong@coseke.com", "lanyerotracy96@gmail.com"};
+
         return new ResponseEntity<>(emailService.sendEmails(
                 recipients,
                 "Notification",
