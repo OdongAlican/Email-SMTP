@@ -51,12 +51,12 @@ public class EmailService {
     private String[] getRecipientsByFileName(String fileName) {
         Map<String, String[]> fileRecipientsMap = new HashMap<>();
         fileRecipientsMap.put("Mukono_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Head_Office_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("City_Centre_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Katwe_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Bukoto_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Kayunga_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Abayita_Ababiri_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Head_Office_data", new String[]{"sandieo.2020@gmail.com", "jaogon@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("City_Centre_data", new String[]{"sandieo.2020@gmail.com", "jaogon@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("Katwe_data", new String[]{"sandieo.2020@gmail.com", "jaogon@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("Bukoto_data", new String[]{"sandieo.2020@gmail.com", "jaogon@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("Kayunga_data", new String[]{"sandieo.2020@gmail.com", "jaogon@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("Abayita_Ababiri_data", new String[]{"sandieo.2020@gmail.com", "jaogon@pridemicrofinance.co.ug"});
         fileRecipientsMap.put("Hoima_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Wandegeya_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Kawempe_data", new String[]{"sandieo.2020@gmail.com"});
@@ -77,8 +77,8 @@ public class EmailService {
         fileRecipientsMap.put("Mbale_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Lira_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Soroti_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Gulu_data", new String[]{"sandieo.2020@gmail.com"});
-        fileRecipientsMap.put("Pader_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Gulu_data", new String[]{"sandieo.2020@gmail.com", "dkatamba@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("Pader_data", new String[]{"sandieo.2020@gmail.com", "dkatamba@pridemicrofinance.co.ug"});
         fileRecipientsMap.put("Bweyale_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Mbarara_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Rukungiri_data", new String[]{"sandieo.2020@gmail.com"});
@@ -97,11 +97,6 @@ public class EmailService {
         fileRecipientsMap.put("Nakulabye_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Bweyogerere_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Gayaza_data", new String[]{"sandieo.2020@gmail.com"});
-//        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com", "dkatamba@pridemicrofinance.co.ug"});
-
-
-//        "jaogon@pridemicrofinance.co.ug"
-
         return fileRecipientsMap.get(fileName);
     }
 }
