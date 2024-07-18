@@ -20,7 +20,6 @@ public class EmailService {
     public String sendEmails(MultipartFile[] attachments) {
         for (MultipartFile attachment : attachments) {
             String fileName = attachment.getOriginalFilename();
-            System.out.println(fileName + " " + "File name");
             String[] recipients = getRecipientsByFileName(fileName);
 
             if (recipients != null) {
@@ -51,10 +50,20 @@ public class EmailService {
 
     private String[] getRecipientsByFileName(String fileName) {
         Map<String, String[]> fileRecipientsMap = new HashMap<>();
-        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com", "lanyerotracy96@gmail.com"});
-        fileRecipientsMap.put("Eastern_Region_data", new String[]{"sandieo.2020@gmail,com"});
+        fileRecipientsMap.put("Head_Office_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Central_1_Region_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Central_2_Region_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Central_3_Region_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Central_4_Region_data", new String[]{"sandieo.2020@gmail.com"});
+//        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com", "dkatamba@pridemicrofinance.co.ug"});
+        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com"});
+        fileRecipientsMap.put("Eastern_Region_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Western_1_Region_data", new String[]{"sandieo.2020@gmail.com"});
+        fileRecipientsMap.put("Western_2_Region_data", new String[]{"sandieo.2020@gmail.com"});
+
+
+//        "jaogon@pridemicrofinance.co.ug"
 
         return fileRecipientsMap.get(fileName);
     }
-
 }
