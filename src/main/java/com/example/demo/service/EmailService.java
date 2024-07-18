@@ -56,7 +56,7 @@ public class EmailService {
         fileRecipientsMap.put("Central_3_Region_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Central_4_Region_data", new String[]{"sandieo.2020@gmail.com"});
 //        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com", "dkatamba@pridemicrofinance.co.ug"});
-        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com"});
+        fileRecipientsMap.put("Northern_Region_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Eastern_Region_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Western_1_Region_data", new String[]{"sandieo.2020@gmail.com"});
         fileRecipientsMap.put("Western_2_Region_data", new String[]{"sandieo.2020@gmail.com"});
