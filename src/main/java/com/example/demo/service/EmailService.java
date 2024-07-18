@@ -8,7 +8,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class EmailService {
@@ -16,27 +17,44 @@ public class EmailService {
     @Autowired
     private JavaMailSenderImpl mailSender;
 
-    public String sendEmails(
-            String[] to,
-            String subject,
-            String body,
-            MultipartFile attachment
-    ) {
-        try {
-            MimeMessage message = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+    public String sendEmails(MultipartFile[] attachments) {
+        for (MultipartFile attachment : attachments) {
+            String fileName = attachment.getOriginalFilename();
+            System.out.println(fileName + " " + "File name");
+            String[] recipients = getRecipientsByFileName(fileName);
 
-            helper.setFrom("contact@pridemicrofinance.co.ug");
-            helper.setTo(to);
-            helper.setSubject(subject);
-            helper.setText(body);
+            if (recipients != null) {
+                try {
+                    MimeMessage message = mailSender.createMimeMessage();
+                    MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-            helper.addAttachment(Objects.requireNonNull(attachment.getOriginalFilename()), attachment);
+                    helper.setFrom("contact@pridemicrofinance.co.ug");
+                    helper.setTo(recipients);
+                    helper.setSubject("Notification");
+                    helper.setText("Pride Notification");
 
-            mailSender.send(message);
-            return "Message Sent";
-        } catch (MessagingException e) {
-            return "Error while sending message";
+                    helper.addAttachment(attachment.getOriginalFilename() + ".pdf", attachment);
+
+                    mailSender.send(message);
+                    System.out.println("Message Sent to: " + String.join(", ", recipients));
+                } catch (MessagingException e) {
+                    System.err.println("Error while sending message: " + e.getMessage());
+                    return "Error while sending message";
+                }
+            } else {
+                System.err.println("No recipients found for file: " + fileName);
+                return "No recipients found for some files";
+            }
         }
+        return "Messages Sent";
     }
+
+    private String[] getRecipientsByFileName(String fileName) {
+        Map<String, String[]> fileRecipientsMap = new HashMap<>();
+        fileRecipientsMap.put("Northern_Region_data", new String[]{"sunday.odong@coseke.com", "lanyerotracy96@gmail.com"});
+        fileRecipientsMap.put("Eastern_Region_data", new String[]{"sandieo.2020@gmail,com"});
+
+        return fileRecipientsMap.get(fileName);
+    }
+
 }

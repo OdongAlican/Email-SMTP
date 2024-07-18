@@ -16,19 +16,12 @@ public class EmailController {
     @Autowired
     public EmailService emailService;
 
-    @PostMapping(value = "/send-emails", consumes = {
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<?> sendEmails(
-            @RequestPart("file") MultipartFile file
-    ) {
-        String[] recipients = {"sunday.odong@coseke.com", "lanyerotracy96@gmail.com"};
-
-        return new ResponseEntity<>(emailService.sendEmails(
-                recipients,
-                "Notification",
-                "Pride Notification",
-                file
-        ), HttpStatus.OK);
+    @PostMapping(value = "/send-emails", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> sendEmails(@RequestParam("files") MultipartFile[] files) {
+        String result = emailService.sendEmails(files);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
+
+
+
