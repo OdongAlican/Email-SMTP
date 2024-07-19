@@ -21,6 +21,12 @@ public class EmailController {
         String result = emailService.sendEmails(files);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @PostMapping(value = "/branch-reports", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> sendReports(@RequestParam("files") MultipartFile[] files){
+        String result = emailService.sendReports(files);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }
 
 
