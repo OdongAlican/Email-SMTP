@@ -29,8 +29,8 @@ public class EmailService {
                     MimeMessageHelper helper = new MimeMessageHelper(message, true);
                     helper.setFrom("contact@pridemicrofinance.co.ug");
                     helper.setTo(recipients);
-                    helper.setSubject("Branch Report for " + removeDataSuffix(fileName) + " Branch on 22nd July 2024");
-                    helper.setText("Please find the attached Branch Report for " + removeDataSuffix(fileName) + " Branch on 22nd July 2024");
+                    helper.setSubject("Branch Report for " + removeDataSuffix(fileName) + " Branch on 25th July 2024");
+                    helper.setText("Please find the attached Branch Report for " + removeDataSuffix(fileName) + " Branch on 25th July 2024");
 
                     helper.addAttachment(attachment.getOriginalFilename() + ".pdf", attachment);
 
